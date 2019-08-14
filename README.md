@@ -1,8 +1,15 @@
-# dojo
+# Firebase道場  Hosting編
 
-## Project setup
+## はじめに
 ```
+npm install -g firebase-tools
 npm install
+firebase init
+```
+
+## 操作画面表示
+```
+npm run ui
 ```
 
 ### Compiles and hot-reloads for development
