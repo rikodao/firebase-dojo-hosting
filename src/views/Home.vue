@@ -7,7 +7,7 @@
     <Logout v-if="isLogin" :loginUser="loginUser"></Logout>
 
     <div v-if="isLogin">
-      <div>{{loginUser.displayName}} さん</div>
+      <div>{{ loginUser.displayName }} さん</div>
       <div>
         <img :src="loginUser.photoURL" />
       </div>
@@ -17,7 +17,7 @@
 </template>
 <script>
 // @ is an alias to /src
-import * as firebase from "firebase";
+import firebaseAuth from "@/firebase/auth/firebase-auth";
 import Login from "@/components/Login.vue";
 import Logout from "@/components/Logout.vue";
 
@@ -35,10 +35,10 @@ export default {
   },
   beforeRouteEnter(route, redirect, next) {
     console.log("Home_beforeRouteEnter");
-    firebase.auth().onAuthStateChanged(user => {
+    firebaseAuth.onStateChanged(user => {
       console.log("onAuthStateChanged", user);
       next(vm => {
-        var user = firebase.auth().currentUser;
+        var user = firebaseAuth.getCurrentUser();
 
         if (!user) {
           return;
@@ -53,7 +53,7 @@ export default {
     console.log("Home_beforeRouteUpdate");
     vm.isLogin = false;
     vm.loginUser = null;
-    firebase.auth().onAuthStateChanged(user => {
+    firebaseAuth.onStateChanged(user => {
       console.log("onAuthStateChanged", user);
       if (!user) {
         next();

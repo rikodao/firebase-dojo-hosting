@@ -6,8 +6,7 @@
 </template>
 
 <script>
-var firebase = require("firebase");
-
+import firebaseAuth from "@/firebase/auth/firebase-auth";
 export default {
   name: "Logout",
   props: ["isLogin", "loginUser"],
@@ -15,12 +14,11 @@ export default {
     // ログアウト
     logout() {
       var vm = this;
-      if (!firebase.auth().currentUser) {
+      if (!firebaseAuth.getCurrentUser()) {
         alert("ログインしてください。");
         return;
       }
-      firebase
-        .auth()
+      firebaseAuth
         .signOut()
         .then(function(res) {
           console.log("signOut", res);
@@ -34,13 +32,12 @@ export default {
     accountDelete() {
       var vm = this;
       // アカウント削除
-      if (!firebase.auth().currentUser) {
+      if (!firebaseAuth.getCurrentUser()) {
         alert("ログインしてください。");
         return;
       }
-      firebase
-        .auth()
-        .currentUser.delete()
+      firebaseAuth
+        .delteAccout()
         .then(function(res) {
           console.log("currentUser.delete", res);
           alert("アカウントを削除しました。");

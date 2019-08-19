@@ -22,15 +22,16 @@ const router = new Router({
   ]
 });
 
-
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth) && !firebase.auth().currentUser) {
-    alert('認証して下さい')
-    next({ path: '/' });
+  if (
+    to.matched.some(record => record.meta.requiresAuth) &&
+    !firebase.auth().currentUser
+  ) {
+    alert("認証して下さい");
+    next({ path: "/" });
   } else {
     next();
   }
 });
-
 
 export default router;
