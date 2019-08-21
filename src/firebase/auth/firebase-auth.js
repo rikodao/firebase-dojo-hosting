@@ -1,4 +1,4 @@
-import firebase from "../app/firebase-app";
+import firebase from "../app/firebase-app"; // eslint-disable-line
 
 class FirebaseAuth {
   constructor() {
@@ -17,11 +17,11 @@ class FirebaseAuth {
     return firebase.auth().currentUser.delete();
   }
 
-  updateAccout(updatedUser) {
+  updateAccout(updatedUser) { // eslint-disable-line
     return firebase.auth().currentUser.updateProfile(updatedUser);
   }
 
-  onStateChanged(cb) {
+  onStateChanged(cb) { // eslint-disable-line
     return firebase.auth().onAuthStateChanged(cb);
   }
 }
