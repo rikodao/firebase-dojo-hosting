@@ -1,4 +1,4 @@
-export default {
+const firebaseConfig = {
   apiKey: "",
   authDomain: "",
   databaseURL: "",
@@ -7,3 +7,5 @@ export default {
   messagingSenderId: "",
   appId: ""
 };
+
+export default firebaseConfig;
