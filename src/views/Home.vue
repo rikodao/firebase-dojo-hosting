@@ -34,33 +34,34 @@ export default {
     };
   },
   beforeRouteEnter(route, redirect, next) {
-    console.log("Home_beforeRouteEnter");
+    console.log("Home_beforeRouteEnter"); // eslint-disable-line
     firebaseAuth.onStateChanged(user => {
-      console.log("onAuthStateChanged", user);
-      next(() => {
+      console.log("onAuthStateChanged", user); // eslint-disable-line
+      next(vm => { // eslint-disable-line
         var user = firebaseAuth.getCurrentUser();
 
         if (!user) {
           return;
         }
 
-        this.isLogin = true;
-        this.loginUser = user;
+        vm.isLogin = true; // eslint-disable-line
+        vm.loginUser = user; // eslint-disable-line
       });
     });
   },
   beforeRouteUpdate(to, from, next) {
-    console.log("Home_beforeRouteUpdate");
-    this.isLogin = false;
-    this.loginUser = null;
+    var vm = this; // eslint-disable-line
+    console.log("Home_beforeRouteUpdate"); // eslint-disable-line
+    vm.isLogin = false;
+    vm.loginUser = null;
     firebaseAuth.onStateChanged(user => {
-      console.log("onAuthStateChanged", user);
+      console.log("onAuthStateChanged", user); // eslint-disable-line
       if (!user) {
         next();
         return;
       }
-      this.isLogin = true;
-      this.loginUser = user;
+      vm.isLogin = true; // eslint-disable-line
+      vm.loginUser = user; // eslint-disable-line
       next();
     });
   }

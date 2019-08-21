@@ -4,7 +4,7 @@ import "firebaseui-ja/dist/firebaseui.css";
 import firebaseAuth from "@/firebase/auth/firebase-auth";
 const UIConfig = {
   signInSuccessWithAuthResult: (authResult, redirectUrl) => {
-    console.log("signInSuccessWithAuthResult", authResult, redirectUrl);
+    console.log("signInSuccessWithAuthResult", authResult, redirectUrl); // eslint-disable-line
 
     var isNewUser = authResult.additionalUserInfo.isNewUser;
     var displayName = authResult.user.displayName;
@@ -44,14 +44,14 @@ const UIConfig = {
     };
 
     firebaseAuth.updateAccout(user).then(res => {
-      console.log("Auth登録完了", res);
+      console.log("Auth登録完了", res); // eslint-disable-line
       alert("ログインしました。");
       window.location.reload();
     });
   },
 
   signInFailure: error => {
-    console.log("signInFailure", error);
+    console.log("signInFailure", error); // eslint-disable-line
     alert(error.message);
     window.location.reload();
   },

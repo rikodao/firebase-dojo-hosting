@@ -21,12 +21,12 @@ export default {
       firebaseAuth
         .signOut()
         .then(function(res) {
-          console.log("signOut", res);
+          console.log("signOut", res); // eslint-disable-line
           alert("ログアウトしました。");
           vm.$router.go();
         })
         .catch(function(error) {
-          console.log(error);
+          console.log(error); // eslint-disable-line
         });
     },
     accountDelete() {
@@ -39,12 +39,12 @@ export default {
       firebaseAuth
         .delteAccout()
         .then(function(res) {
-          console.log("currentUser.delete", res);
+          console.log("currentUser.delete", res); // eslint-disable-line
           alert("アカウントを削除しました。");
           vm.$router.go();
         })
         .catch(function(error) {
-          console.log(error);
+          console.log(error); // eslint-disable-line
         });
     }
   }

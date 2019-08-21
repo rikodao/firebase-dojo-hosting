@@ -45,7 +45,7 @@ export default {
     };
   },
   mounted() {
-    console.log("About_beforeRouteUpdate");
+    console.log("About_beforeRouteUpdate"); // eslint-disable-line
     this.loginUser = firebaseAuth.getCurrentUser();
   }
 };
