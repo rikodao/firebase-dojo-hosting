@@ -37,30 +37,30 @@ export default {
     console.log("Home_beforeRouteEnter");
     firebaseAuth.onStateChanged(user => {
       console.log("onAuthStateChanged", user);
-      next(vm => {
+      next(() => {
         var user = firebaseAuth.getCurrentUser();
 
         if (!user) {
           return;
         }
 
-        vm.isLogin = true;
-        vm.loginUser = user;
+        this.isLogin = true;
+        this.loginUser = user;
       });
     });
   },
   beforeRouteUpdate(to, from, next) {
     console.log("Home_beforeRouteUpdate");
-    vm.isLogin = false;
-    vm.loginUser = null;
+    this.isLogin = false;
+    this.loginUser = null;
     firebaseAuth.onStateChanged(user => {
       console.log("onAuthStateChanged", user);
       if (!user) {
         next();
         return;
       }
-      vm.isLogin = true;
-      vm.loginUser = user;
+      this.isLogin = true;
+      this.loginUser = user;
       next();
     });
   }
