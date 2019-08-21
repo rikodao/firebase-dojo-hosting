@@ -2,8 +2,13 @@
 
 ## はじめに
 ```
-npm install -g firebase-tools
+npm install -g firebase-tools @vue/cli
 npm install
+```
+
+## Firebase初期設定
+```
+firebase login --no-localhost
 firebase init
 ```
 
@@ -12,25 +17,17 @@ firebase init
 npm run ui
 ```
 
-### Compiles and hot-reloads for development
+### ローカルサーバー構築
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### ビルド
 ```
 npm run build
 ```
 
-### Run your tests
+## デプロイ方法
 ```
-npm run test
+firebase deploy
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
