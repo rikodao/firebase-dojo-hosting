@@ -2,7 +2,7 @@
 
 ## はじめに
 ```
-npm install -g firebase-tools @vue/cli
+npm install -g firebase-tools
 npm install
 ```
 
