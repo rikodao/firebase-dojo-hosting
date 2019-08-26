@@ -6,7 +6,7 @@ class FirebaseAuth {
   }
 
   getCurrentUser() {
-    return firebase.auth().currentUser;
+
   }
 
   signOut() {
@@ -14,15 +14,15 @@ class FirebaseAuth {
   }
 
   delteAccout() {
-    return firebase.auth().currentUser.delete();
+
   }
 
   updateAccout(updatedUser) { // eslint-disable-line
-    return firebase.auth().currentUser.updateProfile(updatedUser);
+
   }
 
   onStateChanged(cb) { // eslint-disable-line
-    return firebase.auth().onAuthStateChanged(cb);
+
   }
 }
 
