@@ -7,7 +7,7 @@
     <Logout v-if="isLogin" :loginUser="loginUser"></Logout>
 
     <div v-if="isLogin">
-      <div>{{loginUser.displayName}} さん</div>
+      <div>{{ loginUser.displayName }} さん</div>
       <div>
         <img :src="loginUser.photoURL" />
       </div>
@@ -17,7 +17,7 @@
 </template>
 <script>
 // @ is an alias to /src
-import * as firebase from "firebase";
+import firebaseAuth from "@/firebase/auth/firebase-auth";
 import Login from "@/components/Login.vue";
 import Logout from "@/components/Logout.vue";
 
@@ -34,33 +34,34 @@ export default {
     };
   },
   beforeRouteEnter(route, redirect, next) {
-    console.log("Home_beforeRouteEnter");
-    firebase.auth().onAuthStateChanged(user => {
-      console.log("onAuthStateChanged", user);
-      next(vm => {
-        var user = firebase.auth().currentUser;
+    console.log("Home_beforeRouteEnter"); // eslint-disable-line
+    firebaseAuth.onStateChanged(user => {
+      console.log("onAuthStateChanged", user); // eslint-disable-line
+      next(vm => { // eslint-disable-line
+        var user = firebaseAuth.getCurrentUser();
 
         if (!user) {
           return;
         }
 
-        vm.isLogin = true;
-        vm.loginUser = user;
+        vm.isLogin = true; // eslint-disable-line
+        vm.loginUser = user; // eslint-disable-line
       });
     });
   },
   beforeRouteUpdate(to, from, next) {
-    console.log("Home_beforeRouteUpdate");
+    var vm = this; // eslint-disable-line
+    console.log("Home_beforeRouteUpdate"); // eslint-disable-line
     vm.isLogin = false;
     vm.loginUser = null;
-    firebase.auth().onAuthStateChanged(user => {
-      console.log("onAuthStateChanged", user);
+    firebaseAuth.onStateChanged(user => {
+      console.log("onAuthStateChanged", user); // eslint-disable-line
       if (!user) {
         next();
         return;
       }
-      vm.isLogin = true;
-      vm.loginUser = user;
+      vm.isLogin = true; // eslint-disable-line
+      vm.loginUser = user; // eslint-disable-line
       next();
     });
   }

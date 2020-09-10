@@ -5,11 +5,11 @@
       <tbody>
         <tr>
           <td bgcolor="#F0F0E8" align="left" nowrap>uid</td>
-          <td bgcolor="#FFFFFF" width="150">{{loginUser.uid}}</td>
+          <td bgcolor="#FFFFFF" width="150">{{ loginUser.uid }}</td>
         </tr>
         <tr>
           <td bgcoloår="#F0F0E8" align="left" nowrap>displayName</td>
-          <td bgcolor="#FFFFFF" width="150">{{loginUser.displayName}}</td>
+          <td bgcolor="#FFFFFF" width="150">{{ loginUser.displayName }}</td>
         </tr>
 
         <tr>
@@ -20,15 +20,15 @@
         </tr>
         <tr>
           <td bgcolor="#F0F0E8" align="left" nowrap>email</td>
-          <td bgcolor="#FFFFFF" width="150">{{loginUser.email}}</td>
+          <td bgcolor="#FFFFFF" width="150">{{ loginUser.email }}</td>
         </tr>
         <tr>
           <td bgcolor="#F0F0E8" align="left" nowrap>emailVerified</td>
-          <td bgcolor="#FFFFFF" width="150">{{loginUser.emailVerified}}</td>
+          <td bgcolor="#FFFFFF" width="150">{{ loginUser.emailVerified }}</td>
         </tr>
         <tr>
           <td bgcolor="#F0F0E8" align="left" nowrap>isAnonymous</td>
-          <td bgcolor="#FFFFFF" width="150">{{loginUser.isAnonymous}}</td>
+          <td bgcolor="#FFFFFF" width="150">{{ loginUser.isAnonymous }}</td>
         </tr>
       </tbody>
     </table>
@@ -36,8 +36,7 @@
 </template>
 <script>
 // @ is an alias to /src
-import * as firebase from "firebase";
-
+import firebaseAuth from "@/firebase/auth/firebase-auth";
 export default {
   name: "home",
   data() {
@@ -46,12 +45,11 @@ export default {
     };
   },
   mounted() {
-    console.log("About_beforeRouteUpdate");
-    this.loginUser = firebase.auth().currentUser;
+    console.log("About_beforeRouteUpdate"); // eslint-disable-line
+    this.loginUser = firebaseAuth.getCurrentUser();
   }
 };
 </script>
-
 
 <style scoped>
 table {
