@@ -2,6 +2,7 @@ import firebase from "../app/firebase-app";
 import firebaseui from "firebaseui-ja";
 import "firebaseui-ja/dist/firebaseui.css";
 import uiConfig from "./firabaseui-config.js";
+import * as _firebase from "firebase";
 
 class FirebaseUI {
   constructor() {
@@ -17,13 +18,13 @@ class FirebaseUI {
       signInFlow: "redirect",
       signInSuccessUrl: "/",
       signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        _firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        _firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        _firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
-        firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        _firebase.auth.PhoneAuthProvider.PROVIDER_ID
       ]
     });
   }
