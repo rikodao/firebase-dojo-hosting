@@ -19,8 +19,8 @@ class FirebaseUI {
       signInSuccessUrl: "/",
       signInOptions: [
         _firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        _firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        _firebase.auth.TwitterAuthProvider.PROVIDER_ID,
         _firebase.auth.GithubAuthProvider.PROVIDER_ID,
         _firebase.auth.EmailAuthProvider.PROVIDER_ID,
         firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,

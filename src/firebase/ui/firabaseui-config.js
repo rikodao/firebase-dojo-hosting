@@ -1,6 +1,4 @@
 import * as firebase from "firebase";
-import firebaseui from "firebaseui-ja";
-import "firebaseui-ja/dist/firebaseui.css";
 import firebaseAuth from "@/firebase/auth/firebase-auth";
 const UIConfig = {
   signInSuccessWithAuthResult: (authResult, redirectUrl) => {
@@ -54,7 +52,7 @@ const UIConfig = {
     console.log("signInFailure", error); // eslint-disable-line
     alert(error.message);
     window.location.reload();
-  },
+  }
 };
 
 export default UIConfig;
